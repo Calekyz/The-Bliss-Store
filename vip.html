@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Lounge - VIBE & SPIRITS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .vip-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .vip-header h1 {
+            font-size: 56px;
+            color: gold;
+            margin-bottom: 20px;
+        }
+        
+        .vip-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .vip-feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .vip-feature-card i {
+            font-size: 60px;
+            color: gold;
+            margin-bottom: 20px;
+        }
+        
+        .vip-feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .vip-products {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .vip-products h2 {
+            color: gold;
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .cta-banner {
+            background: gold;
+            color: black;
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .cta-banner h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-banner .btn-vip {
+            background: black;
+            color: gold;
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- AGE VERIFICATION MODAL -->
+    <div id="ageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-logo">
+                <i class="fas fa-wine-bottle"></i>
+                <h2>VIBE & SPIRITS</h2>
+            </div>
+            <h3>Age Verification Required</h3>
+            <p>You must be 18 years or older to enter this site.</p>
+            <div class="dob-input">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="verifyAge()" class="btn-primary">ENTER SITE</button>
+                <button onclick="window.location.href='https://www.google.com'" class="btn-secondary">EXIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-wine-bottle"></i>
+                <span>VIBE & SPIRITS</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="shop.html">SHOP</a></li>
+                    <li><a href="vip.html" class="active">VIP LOUNGE</a></li>
+                    <li><a href="membership.html">MEMBERSHIP</a></li>
+                    <li><a href="delivery.html">DELIVERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIP HEADER -->
+    <section class="vip-header">
+        <div class="container">
+            <h1><i class="fas fa-crown"></i> THE VIP LOUNGE</h1>
+            <p style="font-size: 20px; max-width: 700px; margin: 0 auto;">Experience the finest spirits with exclusive access and premium treatment reserved for our most valued members.</p>
+        </div>
+    </section>
+
+    <!-- VIP FEATURES -->
+    <div class="container">
+        <div class="vip-features">
+            <div class="vip-feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>30-Minute Delivery</h3>
+                <p>Skip the line. VIP orders are prioritized and delivered within 30 minutes anywhere in Nairobi.</p>
+            </div>
+            
+            <div class="vip-feature-card">
+                <i class="fas fa-gem"></i>
+                <h3>Exclusive Bottles</h3>
+                <p>Access to limited edition and rare spirits not available to regular members.</p>
+            </div>
+            
+            <div class="vip-feature-card">
+                <i class="fas fa-glass-cheers"></i>
+                <h3>Private Tastings</h3>
+                <p>Monthly invitation-only events at Nairobi's top venues with master distillers.</p>
+            </div>
+            
+            <div class="vip-feature-card">
+                <i class="fas fa-percent"></i>
+                <h3>15% Off Everything</h3>
+                <p>Permanent discount on all purchases, including exclusive VIP bottles.</p>
+            </div>
+            
+            <div class="vip-feature-card">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Personal Concierge</h3>
+                <p>Dedicated VIP line for special requests and event planning assistance.</p>
+            </div>
+            
+            <div class="vip-feature-card">
+                <i class="fas fa-gift"></i>
+                <h3>Birthday Bottle</h3>
+                <p>Complimentary premium bottle delivered on your birthday.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP EXCLUSIVE PRODUCTS -->
+    <section class="vip-products">
+        <div class="container">
+            <h2><i class="fas fa-crown"></i> VIP EXCLUSIVE COLLECTION</h2>
+            
+            <div class="products-grid">
+                <div class="product-card" style="background: #333; color: white;">
+                    <div class="product-badge vip">EXCLUSIVE</div>
+                    <img src="https://images.unsplash.com/photo-1582813760690-61c2b9e1a39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Macallan 25">
+                    <h3>The Macallan 25 Year</h3>
+                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+                    <p class="price" style="color: gold;">KES 95,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                </div>
+                
+                <div class="product-card" style="background: #333; color: white;">
+                    <div class="product-badge vip">LIMITED</div>
+                    <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Louis XIII">
+                    <h3>Louis XIII Cognac</h3>
+                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+                    <p class="price" style="color: gold;">KES 185,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                </div>
+                
+                <div class="product-card" style="background: #333; color: white;">
+                    <div class="product-badge vip">EXCLUSIVE</div>
+                    <img src="https://images.unsplash.com/photo-1615366111998-7f8a8fb0cf9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hendrick's Lunar">
+                    <h3>Hendrick's Lunar Gin</h3>
+                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+                    <p class="price" style="color: gold;">KES 7,500</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                </div>
+                
+                <div class="product-card" style="background: #333; color: white;">
+                    <div class="product-badge vip">LIMITED</div>
+                    <img src="https://images.unsplash.com/photo-1578911595545-a1f5f9e42b6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dom Perignon">
+                    <h3>Dom Pérignon P2</h3>
+                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
+                    <p class="price" style="color: gold;">KES 45,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="container">
+        <div class="cta-banner">
+            <h2>Ready for the VIP treatment?</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">Join today and get your first VIP bottle with 20% off</p>
+            <a href="membership.html" class="btn-vip">BECOME A VIP MEMBER</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><i class="fas fa-wine-bottle"></i><span>VIBE & SPIRITS</span></div>
+                    <p>Premium liquor delivery in Nairobi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="vip.html">VIP Lounge</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="delivery.html">Delivery Info</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Age Verification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +254 700 000 000</li>
+                        <li><i class="fas fa-envelope"></i> info@vibespirits.co.ke</li>
+                    </ul>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-mpesa"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 VIBE & SPIRITS. Drink responsibly. 18+ only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
