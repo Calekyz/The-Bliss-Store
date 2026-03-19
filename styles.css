@@ -757,3 +757,34 @@ h1, h2, h3, h4 {
         flex-direction: column;
     }
 }
+/* Additional styles for new pages */
+.btn-vip {
+    background: gold;
+    color: var(--secondary);
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-vip:hover {
+    background: #FFE55C;
+    transform: translateY(-2px);
+}
+
+.vip-btn {
+    background: linear-gradient(135deg, #C4A747, #8B0000) !important;
+}
+
+.featured-btn {
+    background: var(--primary) !important;
+}
+
+/* Fix for buttons that were changed from button to a */
+.add-to-cart {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
