@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - VIBE & SPIRITS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .cart-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1551024702-96c147ab1a68?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .cart-items {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .item-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .item-total {
+            font-weight: 700;
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .remove-item {
+            color: var(--danger);
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        
+        .cart-summary {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .summary-row.total {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: none;
+        }
+        
+        .checkout-btn {
+            display: block;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 30px 0 15px;
+        }
+        
+        .continue-shopping {
+            display: block;
+            text-align: center;
+            color: var(--text-gray);
+            text-decoration: none;
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .empty-cart i {
+            font-size: 80px;
+            color: var(--border);
+            margin-bottom: 20px;
+        }
+        
+        .membership-note {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- AGE VERIFICATION MODAL -->
+    <div id="ageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-logo">
+                <i class="fas fa-wine-bottle"></i>
+                <h2>VIBE & SPIRITS</h2>
+            </div>
+            <h3>Age Verification Required</h3>
+            <p>You must be 18 years or older to enter this site.</p>
+            <div class="dob-input">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="verifyAge()" class="btn-primary">ENTER SITE</button>
+                <button onclick="window.location.href='https://www.google.com'" class="btn-secondary">EXIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-wine-bottle"></i>
+                <span>VIBE & SPIRITS</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="shop.html">SHOP</a></li>
+                    <li><a href="vip.html">VIP LOUNGE</a></li>
+                    <li><a href="membership.html">MEMBERSHIP</a></li>
+                    <li><a href="delivery.html">DELIVERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count">3</span></a>
+                <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CART HEADER -->
+    <section class="cart-header">
+        <div class="container">
+            <h1 style="font-size: 48px; margin-bottom: 20px;">YOUR CART</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </section>
+
+    <!-- CART CONTENT -->
+    <div class="container">
+        <div class="cart-container">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                <h2 style="margin-bottom: 20px;">Shopping Cart (3 items)</h2>
+                
+                <!-- Sample Cart Items -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1586141625512-713dd6a738b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Johnnie Walker Blue">
+                    <div class="item-details">
+                        <h3>Johnnie Walker Blue Label</h3>
+                        <p class="item-price">KES 12,500</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <span>1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="item-total">
+                        KES 12,500
+                        <i class="fas fa-trash remove-item" onclick="removeItem(this)"></i>
+                    </div>
+                </div>
+                
+                <div class="cart-item">
+                    <img src="https://images.pexels.com/photos/4394858/pexels-photo-4394858.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&dpr=2" alt="Hendrick's Gin">
+                    <div class="item-details">
+                        <h3>Hendrick's Gin</h3>
+                        <p class="item-price">KES 4,500</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <span>2</span>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="item-total">
+                        KES 9,000
+                        <i class="fas fa-trash remove-item" onclick="removeItem(this)"></i>
+                    </div>
+                </div>
+                
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1614511907449-4641b2970b22?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Moët & Chandon">
+                    <div class="item-details">
+                        <h3>Moët & Chandon Impérial</h3>
+                        <p class="item-price">KES 8,900</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                        <span>1</span>
+                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                    </div>
+                    <div class="item-total">
+                        KES 8,900
+                        <i class="fas fa-trash remove-item" onclick="removeItem(this)"></i>
+                    </div>
+                </div>
+                
+                <!-- Delivery Note -->
+                <div class="membership-note">
+                    <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> Silver & Gold members get free delivery on all orders. <a href="membership.html" style="color: var(--primary);">Upgrade now</a></p>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="cart-summary">
+                <h2 style="margin-bottom: 20px;">Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span>Subtotal (3 items)</span>
+                    <span>KES 30,400</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <span>KES 200</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span>Membership Discount</span>
+                    <span style="color: var(--success);">- KES 0</span>
+                </div>
+                
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>KES 30,600</span>
+                </div>
+                
+                <a href="checkout.html" class="checkout-btn">PROCEED TO CHECKOUT</a>
+                <a href="shop.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                    <p style="font-size: 14px; color: var(--text-gray); margin-bottom: 10px;">We accept:</p>
+                    <div style="display: flex; gap: 15px; font-size: 30px;">
+                        <i class="fab fa-cc-mpesa" style="color: #4CAF50;"></i>
+                        <i class="fab fa-cc-visa" style="color: #1A1F71;"></i>
+                        <i class="fab fa-cc-mastercard" style="color: #EB001B;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo"><i class="fas fa-wine-bottle"></i><span>VIBE & SPIRITS</span></div>
+                    <p>Premium liquor delivery in Nairobi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="vip.html">VIP Lounge</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="delivery.html">Delivery Info</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Age Verification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +254 700 000 000</li>
+                        <li><i class="fas fa-envelope"></i> info@vibespirits.co.ke</li>
+                    </ul>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-mpesa"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 VIBE & SPIRITS. Drink responsibly. 18+ only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function updateQuantity(btn, change) {
+            const quantitySpan = btn.parentElement.querySelector('span');
+            let quantity = parseInt(quantitySpan.textContent);
+            quantity = Math.max(1, quantity + change);
+            quantitySpan.textContent = quantity;
+            // In real app, update cart total here
+        }
+        
+        function removeItem(icon) {
+            if (confirm('Remove this item from cart?')) {
+                const item = icon.closest('.cart-item');
+                item.remove();
+                // In real app, update cart count and summary
+            }
+        }
+    </script>
+</body>
+</html>
