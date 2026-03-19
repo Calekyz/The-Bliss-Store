@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for typography -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- AGE VERIFICATION MODAL - Non-negotiable for liquor sites -->
+    <!-- AGE VERIFICATION MODAL -->
     <div id="ageModal" class="modal">
         <div class="modal-content">
             <div class="modal-logo">
@@ -19,23 +19,21 @@
                 <h2>VIBE & SPIRITS</h2>
             </div>
             <h3>Age Verification Required</h3>
-            <p>You must be 18 years or older to enter this site. Please confirm your date of birth.</p>
+            <p>You must be 18 years or older to enter this site.</p>
             
             <div class="dob-input">
                 <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" max="2025-12-31">
+                <input type="date" id="dob">
             </div>
             
             <div class="modal-buttons">
                 <button onclick="verifyAge()" class="btn-primary">ENTER SITE</button>
                 <button onclick="window.location.href='https://www.google.com'" class="btn-secondary">EXIT</button>
             </div>
-            
-            <p class="legal-note">By entering, you agree to our Terms & Privacy Policy. Drink responsibly.</p>
         </div>
     </div>
 
-    <!-- NAVIGATION BAR -->
+    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -55,7 +53,7 @@
             </div>
             
             <div class="nav-icons">
-                <a href="#" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="shop.html" class="icon-link"><i class="fas fa-search"></i></a>
                 <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
                 <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
                 <div class="hamburger" onclick="toggleMenu()">
@@ -65,8 +63,8 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH BACKGROUND IMAGE (Will be dynamic from backend) -->
-    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+    <!-- HERO SECTION -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
         <div class="hero-content">
             <h1>PREMIUM SPIRITS<br>DELIVERED TO YOUR DOOR</h1>
             <p>Nairobi's finest selection of whiskies, gins, wines and champagnes. Order now and get delivery within 60 minutes.</p>
@@ -81,7 +79,7 @@
         </div>
     </section>
 
-    <!-- FEATURED CATEGORIES SECTION -->
+    <!-- CATEGORIES SECTION -->
     <section class="categories">
         <div class="container">
             <div class="section-header">
@@ -91,42 +89,42 @@
             
             <div class="category-grid">
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1614313517658-77e6245f1f2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Whisky">
+                    <img src="https://images.unsplash.com/photo-1614313517658-77e6245f1f2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Whisky">
                     <h3>WHISKY</h3>
                     <p>Single malt, blended, bourbon</p>
                     <a href="shop.html?category=whisky" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1614511907449-4641b2970b22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Wine">
+                    <img src="https://images.unsplash.com/photo-1614511907449-4641b2970b22?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wine">
                     <h3>WINE</h3>
                     <p>Red, white, rosé, champagne</p>
                     <a href="shop.html?category=wine" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1615366111998-7f8a8fb0cf9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Gin">
+                    <img src="https://images.unsplash.com/photo-1615366111998-7f8a8fb0cf9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gin">
                     <h3>GIN</h3>
                     <p>Premium craft gins</p>
                     <a href="shop.html?category=gin" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1607762922523-3c1b6925e8c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Vodka">
+                    <img src="https://images.unsplash.com/photo-1607762922523-3c1b6925e8c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Vodka">
                     <h3>VODKA</h3>
                     <p>Premium & flavored</p>
                     <a href="shop.html?category=vodka" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Beer">
+                    <img src="https://images.unsplash.com/photo-1578911373434-0cb395d2cbfb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Beer">
                     <h3>BEER</h3>
                     <p>Local & imported craft</p>
                     <a href="shop.html?category=beer" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="category-card">
-                    <img src="https://images.unsplash.com/photo-1578911595545-a1f5f9e42b6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Champagne">
+                    <img src="https://images.unsplash.com/photo-1578911595545-a1f5f9e42b6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Champagne">
                     <h3>CHAMPAGNE</h3>
                     <p>For celebrations</p>
                     <a href="shop.html?category=champagne" class="category-link">Explore <i class="fas fa-arrow-right"></i></a>
@@ -135,7 +133,7 @@
         </div>
     </section>
 
-    <!-- FEATURED PRODUCTS SECTION (Will pull from backend) -->
+    <!-- FEATURED PRODUCTS -->
     <section class="featured-products">
         <div class="container">
             <div class="section-header">
@@ -143,68 +141,47 @@
                 <p>Most ordered in Nairobi this week</p>
             </div>
             
-            <div class="products-grid" id="featuredProducts">
-                <!-- Products will be loaded dynamically from backend -->
+            <div class="products-grid">
                 <div class="product-card">
                     <div class="product-badge">HOT</div>
-                    <img src="https://images.unsplash.com/photo-1586141625512-713dd6a738b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Johnnie Walker Blue">
+                    <img src="https://images.unsplash.com/photo-1586141625512-713dd6a738b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Johnnie Walker Blue">
                     <h3>Johnnie Walker Blue Label</h3>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>(24)</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="price">KES 12,500</p>
-                    <button class="add-to-cart" onclick="addToCart(1)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="cart.html" class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
                 
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80" alt="Moët & Chandon">
+                    <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Moët & Chandon">
                     <h3>Moët & Chandon Impérial</h3>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <span>(18)</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
                     <p class="price">KES 8,900</p>
-                    <button class="add-to-cart" onclick="addToCart(2)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="cart.html" class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
                 
                 <div class="product-card">
-                    <img src="https://images.pexels.com/photos/4394858/pexels-photo-4394858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hendrick's Gin">
+                    <img src="https://images.pexels.com/photos/4394858/pexels-photo-4394858.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&dpr=2" alt="Hendrick's Gin">
                     <h3>Hendrick's Gin</h3>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>(32)</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="price">KES 4,500</p>
-                    <button class="add-to-cart" onclick="addToCart(3)"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <a href="cart.html" class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
                 
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1582813760690-61c2b9e1a39b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Macallan 18">
+                    <img src="https://images.unsplash.com/photo-1582813760690-61c2b9e1a39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Macallan 18">
                     <div class="product-badge vip">VIP EXCLUSIVE</div>
                     <h3>The Macallan 18</h3>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span>(9)</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="price">KES 45,000</p>
-                    <button class="add-to-cart vip-btn" onclick="window.location.href='vip.html'"><i class="fas fa-crown"></i> VIP Only</button>
+                    <a href="vip.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP Only</a>
                 </div>
             </div>
             
@@ -214,7 +191,7 @@
         </div>
     </section>
 
-    <!-- VIP LOUNGE PREVIEW -->
+    <!-- VIP PREVIEW -->
     <section class="vip-preview">
         <div class="vip-content">
             <div class="vip-text">
@@ -223,22 +200,10 @@
                 <p>Join our VIP membership for access to limited edition bottles, priority delivery, and exclusive events in Nairobi.</p>
                 
                 <div class="vip-benefits">
-                    <div class="benefit">
-                        <i class="fas fa-bolt"></i>
-                        <span>30-minute delivery guarantee</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-gem"></i>
-                        <span>Access to VIP-only bottles</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-glass-cheers"></i>
-                        <span>Invitations to private tastings</span>
-                    </div>
-                    <div class="benefit">
-                        <i class="fas fa-percent"></i>
-                        <span>15% off all purchases</span>
-                    </div>
+                    <div class="benefit"><i class="fas fa-bolt"></i><span>30-minute delivery</span></div>
+                    <div class="benefit"><i class="fas fa-gem"></i><span>VIP-only bottles</span></div>
+                    <div class="benefit"><i class="fas fa-glass-cheers"></i><span>Private tastings</span></div>
+                    <div class="benefit"><i class="fas fa-percent"></i><span>15% off all purchases</span></div>
                 </div>
                 
                 <div class="vip-buttons">
@@ -247,43 +212,40 @@
                 </div>
             </div>
             <div class="vip-image">
-                <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VIP Lounge">
+                <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="VIP Lounge">
             </div>
         </div>
     </section>
 
-    <!-- DELIVERY INFO SECTION -->
+    <!-- DELIVERY INFO -->
     <section class="delivery-info">
         <div class="container">
             <div class="info-grid">
                 <div class="info-card">
                     <i class="fas fa-motorcycle"></i>
                     <h3>60-Minute Delivery</h3>
-                    <p>In Nairobi. Free for orders above KES 3,500</p>
+                    <p>In Nairobi. Free above KES 3,500</p>
                 </div>
-                
                 <div class="info-card">
                     <i class="fas fa-id-card"></i>
                     <h3>Age Verification</h3>
                     <p>ID required on delivery. 18+ only.</p>
                 </div>
-                
                 <div class="info-card">
                     <i class="fas fa-mobile-alt"></i>
                     <h3>M-Pesa Accepted</h3>
-                    <p>Pay via M-Pesa, card, or cash on delivery</p>
+                    <p>Pay via M-Pesa, card, or cash</p>
                 </div>
-                
                 <div class="info-card">
                     <i class="fas fa-clock"></i>
                     <h3>Order Hours</h3>
-                    <p>Mon-Sat: 10am - 11pm | Sun: 12pm - 8pm</p>
+                    <p>Mon-Sat: 10am-11pm | Sun: 12pm-8pm</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MEMBERSHIP LEVELS -->
+    <!-- MEMBERSHIP -->
     <section class="membership-levels">
         <div class="container">
             <div class="section-header">
@@ -312,7 +274,7 @@
                     <ul>
                         <li><i class="fas fa-check"></i> Free delivery all orders</li>
                         <li><i class="fas fa-check"></i> 5% off all purchases</li>
-                        <li><i class="fas fa-check"></i> Early access to new arrivals</li>
+                        <li><i class="fas fa-check"></i> Early access</li>
                         <li><i class="fas fa-check"></i> Birthday bottle</li>
                         <li><i class="fas fa-times"></i> VIP lounge access</li>
                     </ul>
@@ -323,10 +285,10 @@
                     <h3>GOLD <i class="fas fa-crown" style="color: gold;"></i></h3>
                     <div class="price">KES 5,000<span>/month</span></div>
                     <ul>
-                        <li><i class="fas fa-check"></i> 30-minute priority delivery</li>
+                        <li><i class="fas fa-check"></i> 30-minute priority</li>
                         <li><i class="fas fa-check"></i> 15% off all purchases</li>
-                        <li><i class="fas fa-check"></i> VIP-only bottle access</li>
-                        <li><i class="fas fa-check"></i> Private tasting events</li>
+                        <li><i class="fas fa-check"></i> VIP-only bottles</li>
+                        <li><i class="fas fa-check"></i> Private tastings</li>
                         <li><i class="fas fa-check"></i> Concierge service</li>
                     </ul>
                     <a href="signup.html?plan=gold" class="btn-membership">GO GOLD</a>
@@ -344,36 +306,21 @@
             
             <div class="testimonial-grid">
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"Ordered Johnnie Walker Blue at 9pm, had it by 9:45. The rider even checked my ID properly. Legit service."</p>
-                    <div class="customer">
-                        <strong>David M.</strong>
-                        <span>Nairobi, Kilimani</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Ordered Johnnie Walker Blue at 9pm, had it by 9:45. Legit service."</p>
+                    <div class="customer"><strong>David M.</strong><span>Nairobi, Kilimani</span></div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"VIP membership is worth it. Got invited to a whisky tasting at Sankara, met some cool people. The 15% discount pays for itself."</p>
-                    <div class="customer">
-                        <strong>Sarah W.</strong>
-                        <span>VIP Gold Member</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"VIP membership is worth it. The 15% discount pays for itself."</p>
+                    <div class="customer"><strong>Sarah W.</strong><span>VIP Gold Member</span></div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"Best selection of gins in Nairobi. Hendrick's, Malfy, Edinburgh—they have it all. Delivery always on time."</p>
-                    <div class="customer">
-                        <strong>James K.</strong>
-                        <span>Westlands</span>
-                    </div>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Best selection of gins in Nairobi. Delivery always on time."</p>
+                    <div class="customer"><strong>James K.</strong><span>Westlands</span></div>
                 </div>
             </div>
         </div>
@@ -384,11 +331,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <div class="footer-logo">
-                        <i class="fas fa-wine-bottle"></i>
-                        <span>VIBE & SPIRITS</span>
-                    </div>
-                    <p>Premium liquor delivery in Nairobi. Fast, reliable, and discreet.</p>
+                    <div class="footer-logo"><i class="fas fa-wine-bottle"></i><span>VIBE & SPIRITS</span></div>
+                    <p>Premium liquor delivery in Nairobi.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -413,8 +357,7 @@
                     <ul>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Age Verification Policy</a></li>
-                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Age Verification</a></li>
                     </ul>
                 </div>
                 
@@ -423,7 +366,6 @@
                     <ul>
                         <li><i class="fas fa-phone"></i> +254 700 000 000</li>
                         <li><i class="fas fa-envelope"></i> info@vibespirits.co.ke</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
                     </ul>
                     <div class="payment-methods">
                         <i class="fab fa-cc-mpesa"></i>
@@ -434,13 +376,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>© 2025 VIBE & SPIRITS. All rights reserved. Drink responsibly. Not for sale to persons under 18.</p>
+                <p>© 2025 VIBE & SPIRITS. Drink responsibly. 18+ only.</p>
             </div>
         </div>
     </footer>
 
-    <!-- CHATBOT (For quick orders) -->
-    <div class="chatbot" onclick="openChat()">
+    <!-- CHATBOT -->
+    <div class="chatbot" onclick="window.location.href='contact.html'">
         <i class="fas fa-comment-dots"></i>
     </div>
 
