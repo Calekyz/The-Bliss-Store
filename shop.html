@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - VIBE & SPIRITS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional shop page styles */
+        .shop-header {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551024702-96c147ab1a68?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .shop-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: -50px auto 40px;
+            max-width: 1000px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            min-width: 200px;
+        }
+        
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 50px 0;
+        }
+        
+        .page-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .page-link:hover, .page-link.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- AGE VERIFICATION MODAL (same as index) -->
+    <div id="ageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-logo">
+                <i class="fas fa-wine-bottle"></i>
+                <h2>VIBE & SPIRITS</h2>
+            </div>
+            <h3>Age Verification Required</h3>
+            <p>You must be 18 years or older to enter this site.</p>
+            <div class="dob-input">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="verifyAge()" class="btn-primary">ENTER SITE</button>
+                <button onclick="window.location.href='https://www.google.com'" class="btn-secondary">EXIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION (same as index) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-wine-bottle"></i>
+                <span>VIBE & SPIRITS</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="shop.html" class="active">SHOP</a></li>
+                    <li><a href="vip.html">VIP LOUNGE</a></li>
+                    <li><a href="membership.html">MEMBERSHIP</a></li>
+                    <li><a href="delivery.html">DELIVERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="nav-icons">
+                <a href="shop.html" class="icon-link"><i class="fas fa-search"></i></a>
+                <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+                <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SHOP HEADER -->
+    <section class="shop-header">
+        <div class="container">
+            <h1>ALL PRODUCTS</h1>
+            <p>Browse our complete collection of premium spirits</p>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="container">
+        <div class="filter-bar">
+            <select class="filter-select">
+                <option>All Categories</option>
+                <option>Whisky</option>
+                <option>Wine</option>
+                <option>Gin</option>
+                <option>Vodka</option>
+                <option>Beer</option>
+                <option>Champagne</option>
+            </select>
+            
+            <select class="filter-select">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Best Selling</option>
+                <option>Newest</option>
+            </select>
+            
+            <select class="filter-select">
+                <option>Price Range: All</option>
+                <option>Under KES 3,000</option>
+                <option>KES 3,000 - 6,000</option>
+                <option>KES 6,000 - 10,000</option>
+                <option>Over KES 10,000</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <section class="featured-products" style="padding-top: 20px;">
+        <div class="container">
+            <div class="shop-grid">
+                <!-- Whisky Products -->
+                <div class="product-card">
+                    <div class="product-badge">BESTSELLER</div>
+                    <img src="https://images.unsplash.com/photo-1586141625512-713dd6a738b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Johnnie Walker Blue">
+                    <h3>Johnnie Walker Blue Label</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="price">KES 12,500</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1582813760690-61c2b9e1a39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Macallan 18">
+                    <div class="product-badge vip">VIP</div>
+                    <h3>The Macallan 18</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="price">KES 45,000</p>
+                    <a href="vip.html" class="add-to-cart vip-btn">VIP Only</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Macallan 12">
+                    <h3>The Macallan 12 Year</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="price">KES 12,500</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Glenfiddich">
+                    <h3>Glenfiddich 18 Year</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="price">KES 16,500</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <!-- Gin Products -->
+                <div class="product-card">
+                    <img src="https://images.pexels.com/photos/4394858/pexels-photo-4394858.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&dpr=2" alt="Hendrick's Gin">
+                    <h3>Hendrick's Gin</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="price">KES 4,500</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1615366111998-7f8a8fb0cf9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bombay Sapphire">
+                    <h3>Bombay Sapphire</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="price">KES 3,800</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <!-- Wine Products -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1614511907449-4641b2970b22?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Moët & Chandon">
+                    <h3>Moët & Chandon Impérial</h3>
+                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="price">KES 8,900</p>
+                    <a href="cart.html" class="add-to-cart">Add to Cart</a>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1614511907449-4641b2970
