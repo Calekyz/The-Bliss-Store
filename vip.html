@@ -36,6 +36,11 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .vip-feature-card:hover {
+            transform: translateY(-10px);
         }
         
         .vip-feature-card i {
@@ -47,6 +52,7 @@
         .vip-feature-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
+            color: var(--secondary);
         }
         
         .vip-products {
@@ -62,18 +68,30 @@
             margin-bottom: 50px;
         }
         
+        .vip-products .product-card {
+            background: #333;
+            color: white;
+            border: 1px solid gold;
+        }
+        
+        .vip-products .price {
+            color: gold;
+        }
+        
         .cta-banner {
             background: gold;
             color: black;
             padding: 60px;
             border-radius: 20px;
             text-align: center;
-            margin: 60px 0;
+            margin: 60px auto;
+            max-width: 1000px;
         }
         
         .cta-banner h2 {
             font-size: 36px;
             margin-bottom: 20px;
+            color: black;
         }
         
         .cta-banner .btn-vip {
@@ -81,6 +99,21 @@
             color: gold;
             font-size: 18px;
             padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-banner .btn-vip:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .testimonial-card.vip-testimonial {
+            background: linear-gradient(135deg, #f9f9f9, #fff);
+            border-left: 5px solid gold;
         }
     </style>
 </head>
@@ -141,7 +174,7 @@
         </div>
     </section>
 
-    <!-- VIP FEATURES -->
+    <!-- VIP FEATURES SECTION -->
     <div class="container">
         <div class="vip-features">
             <div class="vip-feature-card">
@@ -177,7 +210,7 @@
             <div class="vip-feature-card">
                 <i class="fas fa-gift"></i>
                 <h3>Birthday Bottle</h3>
-                <p>Complimentary premium bottle delivered on your birthday.</p>
+                <p>Complimentary premium bottle delivered on your birthday (KES 5,000 value).</p>
             </div>
         </div>
     </div>
@@ -188,46 +221,112 @@
             <h2><i class="fas fa-crown"></i> VIP EXCLUSIVE COLLECTION</h2>
             
             <div class="products-grid">
-                <div class="product-card" style="background: #333; color: white;">
+                <div class="product-card">
                     <div class="product-badge vip">EXCLUSIVE</div>
                     <img src="https://images.unsplash.com/photo-1582813760690-61c2b9e1a39b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Macallan 25">
                     <h3>The Macallan 25 Year</h3>
-                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
-                    <p class="price" style="color: gold;">KES 95,000</p>
-                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                    <div class="rating">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                    </div>
+                    <p class="price">KES 95,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> ADD TO CART</a>
                 </div>
                 
-                <div class="product-card" style="background: #333; color: white;">
+                <div class="product-card">
                     <div class="product-badge vip">LIMITED</div>
                     <img src="https://images.unsplash.com/photo-1629834887995-24425f52d70e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Louis XIII">
                     <h3>Louis XIII Cognac</h3>
-                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
-                    <p class="price" style="color: gold;">KES 185,000</p>
-                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                    <div class="rating">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                    </div>
+                    <p class="price">KES 185,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> ADD TO CART</a>
                 </div>
                 
-                <div class="product-card" style="background: #333; color: white;">
+                <div class="product-card">
                     <div class="product-badge vip">EXCLUSIVE</div>
-                    <img src="https://images.unsplash.com/photo-1615366111998-7f8a8fb0cf9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hendrick's Lunar">
+                    <img src="https://images.pexels.com/photos/4394858/pexels-photo-4394858.jpeg?auto=compress&cs=tinysrgb&w=500&h=750&dpr=2" alt="Hendrick's Lunar">
                     <h3>Hendrick's Lunar Gin</h3>
-                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
-                    <p class="price" style="color: gold;">KES 7,500</p>
-                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                    <div class="rating">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                    </div>
+                    <p class="price">KES 7,500</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> ADD TO CART</a>
                 </div>
                 
-                <div class="product-card" style="background: #333; color: white;">
+                <div class="product-card">
                     <div class="product-badge vip">LIMITED</div>
                     <img src="https://images.unsplash.com/photo-1578911595545-a1f5f9e42b6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dom Perignon">
                     <h3>Dom Pérignon P2</h3>
-                    <div class="rating"><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i><i class="fas fa-star" style="color: gold;"></i></div>
-                    <p class="price" style="color: gold;">KES 45,000</p>
-                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> VIP ONLY</a>
+                    <div class="rating">
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                        <i class="fas fa-star" style="color: gold;"></i>
+                    </div>
+                    <p class="price">KES 45,000</p>
+                    <a href="cart.html" class="add-to-cart vip-btn"><i class="fas fa-crown"></i> ADD TO CART</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA BANNER -->
+    <!-- VIP TESTIMONIALS -->
+    <section class="testimonials" style="background: white;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 36px; margin-bottom: 50px;">WHAT OUR VIP MEMBERS SAY</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card vip-testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The private tasting at Sankara was incredible. Got to try whiskeys I've never seen anywhere else in Nairobi. Worth every shilling of the Gold membership."</p>
+                    <div class="customer">
+                        <strong>Michael O.</strong>
+                        <span>Gold Member since 2024</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card vip-testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"30-minute delivery is no joke. Ordered a bottle for a client dinner that started earlier than expected, and it arrived before the appetizers. VIP concierge even helped me choose."</p>
+                    <div class="customer">
+                        <strong>Wanjiku K.</strong>
+                        <span>Silver Member</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card vip-testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The 15% discount pays for the membership in two orders. I've saved over 15k this year, plus the birthday bottle was a nice surprise. Best decision ever."</p>
+                    <div class="customer">
+                        <strong>David M.</strong>
+                        <span>Gold Member</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
     <div class="container">
         <div class="cta-banner">
             <h2>Ready for the VIP treatment?</h2>
