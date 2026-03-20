@@ -37,61 +37,43 @@ document.addEventListener('DOMContentLoaded', function() {
 // Global function for age verification (called from HTML onclick)
 window.verifyAge = function() {
     console.log('verifyAge function called');
-    
-    // Get date input
-    const dobInput = document.getElementById('dob');
-    if (!dobInput) {
-        console.error('Date input not found!');
+
+    const adultCheckbox = document.getElementById('confirmAdult');
+    const termsCheckbox = document.getElementById('agreeTerms');
+
+    if (!adultCheckbox || !termsCheckbox) {
+        console.error('Age confirmation checkboxes not found!');
         alert('System error. Please refresh the page.');
         return;
     }
-    
-    const dob = dobInput.value;
-    if (!dob) {
-        alert('Please enter your date of birth');
+
+    if (!adultCheckbox.checked) {
+        alert('Please confirm that you are 18 years and above.');
         return;
     }
-    
-    console.log('Date of birth entered:', dob);
-    
-    // Calculate age
-    const birthDate = new Date(dob);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
+
+    if (!termsCheckbox.checked) {
+        alert('Please agree to the terms and conditions to continue.');
+        return;
     }
-    
-    console.log('Calculated age:', age);
-    
-    // Check if 18 or older
-    if (age >= 18) {
-        // Store verification in session storage
-        sessionStorage.setItem('ageVerified', 'true');
-        console.log('Age verified - closing modal');
-        
-        // Hide modal
-        const ageModal = document.getElementById('ageModal');
-        if (ageModal) {
-            ageModal.style.display = 'none';
-            // Re-enable scrolling
-            document.body.style.overflow = 'auto';
-        }
-    } else {
-        alert('You must be 18 or older to enter this site. You will now be redirected.');
-        window.location.href = 'https://www.google.com';
+
+    sessionStorage.setItem('ageVerified', 'true');
+    console.log('Age verification confirmed - closing modal');
+
+    const ageModal = document.getElementById('ageModal');
+    if (ageModal) {
+        ageModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 };
 
 // ===== MOBILE MENU =====
-function toggleMenu() {
+window.toggleMenu = function() {
     const navMenu = document.getElementById('navMenu');
     if (navMenu) {
         navMenu.classList.toggle('active');
     }
-}
+};
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -184,9 +166,9 @@ function subscribeNewsletter() {
 
 // ===== ENTER KEY SUPPORT FOR AGE MODAL =====
 document.addEventListener('DOMContentLoaded', function() {
-    const dobInput = document.getElementById('dob');
-    if (dobInput) {
-        dobInput.addEventListener('keypress', function(e) {
+    const ageModal = document.getElementById('ageModal');
+    if (ageModal) {
+        ageModal.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 window.verifyAge();

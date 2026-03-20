@@ -63,7 +63,16 @@
             <div class="modal-logo"><i class="fas fa-wine-bottle"></i><h2>VIBE & SPIRITS</h2></div>
             <h3>Age Verification Required</h3>
             <p>You must be 18 years or older to enter this site.</p>
-            <div class="dob-input"><label for="dob">Date of Birth</label><input type="date" id="dob"></div>
+            <div class="modal-checklist">
+                <label class="modal-checkbox" for="confirmAdult">
+                    <input type="checkbox" id="confirmAdult">
+                    <span>I confirm that I am 18 years and above.</span>
+                </label>
+                <label class="modal-checkbox" for="agreeTerms">
+                    <input type="checkbox" id="agreeTerms">
+                    <span>I agree to the <a href="#">Terms and Conditions</a>.</span>
+                </label>
+            </div>
             <div class="modal-buttons"><button onclick="verifyAge()" class="btn-primary">ENTER SITE</button><button onclick="window.location.href='https://www.google.com'" class="btn-secondary">EXIT</button></div>
         </div>
     </div>
